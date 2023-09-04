@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "holoafk",
+  "name": "holoafk",
+  "description": "forge port 1.8.9 of hololb/holoafk",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude", "dxxxxy"],
-  "credits": "The Forge and FML guys, for making this example. dxxxxy for fixing it.",
+  "authorList": ["hololb", "dxxxxy"],
+  "credits": "Forge template from dxxxxy",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
