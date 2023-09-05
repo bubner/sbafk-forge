@@ -1,11 +1,18 @@
 package holo.holoafk.utils;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.scoreboard.Score;
+import net.minecraft.scoreboard.ScoreObjective;
+import net.minecraft.scoreboard.ScorePlayerTeam;
 import net.minecraft.scoreboard.Scoreboard;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Loader;
+import org.lwjgl.Sys;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class Utils {
     /**
@@ -37,15 +44,17 @@ public class Utils {
     }
 
     /**
-     * Check if the user is on their Private Island by checking for Your Isla and 🍭 in the scoreboard.
-     * Hypixel includes emojis in their scoreboard island location depending on the island type.
+     * Check if the user is on their Private Island by checking for 'Your Isla' in the scoreboard.
+     * Hypixel includes emojis in their scoreboard for formatting purposes, so we can only check for a partial match.
      */
     public static boolean isOnPrivateIsland() {
         try {
             Scoreboard sc = Minecraft.getMinecraft().theWorld.getScoreboard();
-            String[] lines = sc.getObjectiveInDisplaySlot(1).getDisplayName().split("\n");
-            for (String line : lines) {
-                if (line.contains("Your Isla") || line.contains("🍭")) {
+            ScoreObjective sidebar = sc.getObjectiveInDisplaySlot(1);
+            Collection<Score> scores = sc.getSortedScores(sidebar);
+            for (Score line : scores) {
+                ScorePlayerTeam team = sc.getPlayersTeam(line.getPlayerName());
+                if (ScorePlayerTeam.formatPlayerName(team, line.getPlayerName()).trim().contains("Your Isla")) {
                     return true;
                 }
             }

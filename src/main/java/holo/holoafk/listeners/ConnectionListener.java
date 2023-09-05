@@ -1,9 +1,11 @@
 package holo.holoafk.listeners;
 
-import holo.holoafk.actions.AlertAction;
+import holo.holoafk.actions.SendAlert;
 import holo.holoafk.actions.CommandAction;
 import holo.holoafk.actions.threads.ReconnectAction;
 import holo.holoafk.utils.Events;
+import holo.holoafk.utils.FlagTrigger;
+import holo.holoafk.utils.ModConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ServerData;
 import net.minecraftforge.common.config.Configuration;
@@ -16,10 +18,10 @@ import net.minecraftforge.fml.common.network.FMLNetworkEvent;
  */
 public class ConnectionListener {
 
-    private final Configuration config;
+    private final ModConfig config;
     private ServerData lastConnected;
 
-    public ConnectionListener(Configuration config) {
+    public ConnectionListener(ModConfig config) {
         this.config = config;
     }
 
@@ -30,35 +32,13 @@ public class ConnectionListener {
 
     @SubscribeEvent(priority = EventPriority.HIGH)
     public void onServerDisconnect(FMLNetworkEvent.ClientDisconnectionFromServerEvent event) {
-        if (!config.get("settings", "active", false).getBoolean()) {
+        if (!config.isActive()) {
             return;
         }
 
         if (lastConnected != null) {
-            ReconnectAction reconnectAction = new ReconnectAction(lastConnected, 3);
+            ReconnectAction reconnectAction = new ReconnectAction(lastConnected, config);
             reconnectAction.start();
-            // Wait until reconnect thread is done
-            try {
-                reconnectAction.join();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
         }
-
-        String webhook = config.get("settings", "webhook", "").getString();
-        int maxTries = config.get("settings", "maxtries", 2).getInt();
-        if (webhook.isEmpty()) {
-            CommandAction.runRecovery(maxTries, Events.RecoveryEvent.KICK_RECOVERY);
-            return;
-        }
-        String discordid = config.get("settings", "discordid", "").getString();
-        String identifier = config.get("settings", "identifier", "").getString();
-
-        if (Minecraft.getMinecraft().getCurrentServerData() == null) {
-            AlertAction.sendAlert("<account disconnect detection>", Events.getKickEventContent(Events.KickEvent.UNSUCCESSFUL_DISCONNECT_RECOVERY), identifier, discordid, webhook, AlertAction.AlertPriority.HIGH);
-            return;
-        }
-
-        CommandAction.runRecovery(maxTries, Events.RecoveryEvent.KICK_RECOVERY);
     }
 }

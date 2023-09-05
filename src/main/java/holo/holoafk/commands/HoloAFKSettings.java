@@ -46,6 +46,11 @@ public class HoloAFKSettings extends CommandBase {
         if (args.length == 0) {
             throw new CommandException(USE_COMMAND);
         }
+        if (Objects.equals(args[0], "debug")) {
+            Utils.sendMsg("isOnPrivateIsland: " + Utils.isOnPrivateIsland());
+            Utils.sendMsg("isInSkyblock: " + Utils.isInSkyblock());
+            return;
+        }
         if (args.length == 2 && Objects.equals(args[1], "clear")) {
             switch (args[0]) {
                 case "active":
@@ -72,7 +77,7 @@ public class HoloAFKSettings extends CommandBase {
                     break;
                 case "wh":
                     // Crappy hack as Minecraft chat has a character limit, would implement a GUI if I needed one
-                    config.get("settings", "webhook", "").set("https://discord.com/api/webhooks/" + args[1]);
+                    config.get("settings", "webhook", "").set(args[1].startsWith("https://discord.com/api/webhooks/") ? "" : "https://discord.com/api/webhooks/" + args[1]);
                     break;
                 case "discordid":
                 case "identifier":

@@ -9,9 +9,9 @@ public class Events {
     public static HashMap<String, RecoveryEvent> FLAGGED_MSGS = new HashMap<String, RecoveryEvent>() {{
         put("evacuating to hub", RecoveryEvent.HUB_RECOVERY);
         put("you are being transferred", RecoveryEvent.HUB_RECOVERY);
-        put("an exception occurred in your connection", RecoveryEvent.KICK_RECOVERY);
-        put("a disconnect occurred in your connection", RecoveryEvent.KICK_RECOVERY);
-        put("a kick occurred in your connection", RecoveryEvent.KICK_RECOVERY);
+        put("an exception occurred", RecoveryEvent.KICK_RECOVERY);
+        put("a disconnect occurred", RecoveryEvent.KICK_RECOVERY);
+        put("a kick occurred", RecoveryEvent.KICK_RECOVERY);
         put("you are afk", RecoveryEvent.LIMBO_RECOVERY);
         put("you were spawned in limbo", RecoveryEvent.LIMBO_RECOVERY);
     }};
@@ -68,5 +68,13 @@ public class Events {
         LIMBO_RECOVERY,
         KICK_RECOVERY,
         DISCONNECT_RECOVERY,
+    }
+
+    /**
+     * Priorities of alert messages, HIGH will be pinged and displayed in red.
+     */
+    public enum AlertPriority {
+        LOW,
+        HIGH
     }
 }

@@ -3,6 +3,7 @@ package holo.holoafk;
 import holo.holoafk.commands.HoloAFKSettings;
 import holo.holoafk.listeners.ChatListener;
 import holo.holoafk.listeners.ConnectionListener;
+import holo.holoafk.utils.ModConfig;
 import holo.holoafk.utils.Utils;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
@@ -36,8 +37,9 @@ public class HoloAFK {
     public void init(FMLInitializationEvent event) {
         System.out.println("Lachlan Paul CSS");
         // Register commands and the two primary disconnect listeners
-        ClientCommandHandler.instance.registerCommand(new HoloAFKSettings(this.config));
-        MinecraftForge.EVENT_BUS.register(new ConnectionListener(this.config));
-        MinecraftForge.EVENT_BUS.register(new ChatListener(this.config));
+        ModConfig modConfig = new ModConfig(this.config);
+        ClientCommandHandler.instance.registerCommand(new HoloAFKSettings(config));
+        MinecraftForge.EVENT_BUS.register(new ConnectionListener(modConfig));
+        MinecraftForge.EVENT_BUS.register(new ChatListener(modConfig));
     }
 }

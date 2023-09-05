@@ -1,6 +1,8 @@
 package holo.holoafk.actions.threads;
 
 import holo.holoafk.utils.Events;
+import holo.holoafk.utils.FlagTrigger;
+import holo.holoafk.utils.ModConfig;
 import net.minecraft.client.Minecraft;
 
 import static holo.holoafk.actions.CommandAction.runRecovery;
@@ -10,10 +12,12 @@ import static holo.holoafk.actions.CommandAction.runRecovery;
  */
 public class LimboAction extends Thread implements Runnable {
 
-    private final int maxTries;
+    private final ModConfig config;
+    private final FlagTrigger trigger;
 
-    public LimboAction(int maxTries) {
-        this.maxTries = maxTries;
+    public LimboAction(ModConfig config, FlagTrigger trigger) {
+        this.config = config;
+        this.trigger = trigger;
     }
 
     @Override
@@ -24,7 +28,12 @@ public class LimboAction extends Thread implements Runnable {
             throw new RuntimeException(e);
         }
         Minecraft.getMinecraft().thePlayer.sendChatMessage("/l");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         // Not bothering with checks if we're out of limbo
-        runRecovery(maxTries, Events.RecoveryEvent.KICK_RECOVERY);
+        runRecovery(config, trigger, Events.RecoveryEvent.KICK_RECOVERY);
     }
 }
