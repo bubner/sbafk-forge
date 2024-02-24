@@ -115,7 +115,7 @@ public class SendAlert extends Thread implements Runnable {
         embed.addProperty("color", priority == Events.AlertPriority.HIGH ? 0xed1c24 : 0x00b020);
 
         JsonObject footer = new JsonObject();
-        footer.addProperty("text", "https://github.com/hololb/holoafk-forge");
+        footer.addProperty("text", "https://github.com/bubner/holoafk-forge");
 
         JsonArray fields = new JsonArray();
 
