@@ -1,11 +1,11 @@
-package holo.holoafk.actions.threads;
+package me.bubner.sbafk.actions.threads;
 
-import holo.holoafk.utils.Events;
-import holo.holoafk.utils.FlagTrigger;
-import holo.holoafk.utils.ModConfig;
+import me.bubner.sbafk.utils.Events;
+import me.bubner.sbafk.utils.FlagTrigger;
+import me.bubner.sbafk.utils.ModConfig;
 import net.minecraft.client.Minecraft;
 
-import static holo.holoafk.actions.CommandAction.runRecovery;
+import static me.bubner.sbafk.actions.CommandAction.runRecovery;
 
 /**
  * Run commands to recover from being kicked to limbo.

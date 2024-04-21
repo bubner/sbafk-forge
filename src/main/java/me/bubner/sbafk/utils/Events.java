@@ -1,4 +1,4 @@
-package holo.holoafk.utils;
+package me.bubner.sbafk.utils;
 
 import java.util.HashMap;
 

@@ -16,8 +16,8 @@ plugins {
 apply plugin: "net.minecraftforge.gradle.forge"
 
 version = "1.0"
-group = "holo.holoafk" //http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "holoafk-1.8.9" //name of the output jar
+group = "me.bubner.sbafk" //http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "sbafk-1.8.9" //name of the output jar
 
 sourceCompatibility = targetCompatibility = 1.8 //using java 8
 compileJava.options.encoding = "UTF-8"

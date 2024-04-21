@@ -1,6 +1,6 @@
-package holo.holoafk.commands;
+package me.bubner.sbafk.commands;
 
-import holo.holoafk.utils.Utils;
+import me.bubner.sbafk.utils.Utils;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
@@ -9,26 +9,26 @@ import net.minecraftforge.common.config.Configuration;
 import java.util.Objects;
 
 /**
- * Commands for HoloAFK
- * /holoafk <active | wh | discordid | identifier | maxtries> <value | clear>
+ * Commands for SbAFK
+ * /sbafk <active | wh | discordid | identifier | maxtries> <value | clear>
  */
-public class HoloAFKSettings extends CommandBase {
+public class SbAFKSettings extends CommandBase {
 
-    private static final String USE_COMMAND = "/holoafk <active | wh | discordid | identifier | maxtries> <value | clear>\n\n" +
+    private static final String USE_COMMAND = "/sbafk <active | wh | discordid | identifier | maxtries> <value | clear>\n\n" +
             "<active>: whether to activate the mod (true/false)\n" +
             "<wh>: discord webhook for notifications, paste all the text after `https://discord.com/api/webhooks/` in the URL\n" +
             "<discordid>: id of person to ping, optionally supports @everyone and @here\n" +
-            "<identifier>: configure name: holoafk notifier for <identifier>\n" +
+            "<identifier>: configure name: sbafk notifier for <identifier>\n" +
             "<maxtries>: max recovery attempts before sending a fail message";
     private final Configuration config;
 
-    public HoloAFKSettings(Configuration config) {
+    public SbAFKSettings(Configuration config) {
         this.config = config;
     }
 
     @Override
     public String getCommandName() {
-        return "holoafk";
+        return "sbafk";
     }
 
     @Override

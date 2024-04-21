@@ -1,10 +1,10 @@
-package holo.holoafk.actions.threads;
+package me.bubner.sbafk.actions.threads;
 
-import holo.holoafk.actions.SendAlert;
-import holo.holoafk.utils.Events;
-import holo.holoafk.utils.FlagTrigger;
-import holo.holoafk.utils.ModConfig;
-import holo.holoafk.utils.Utils;
+import me.bubner.sbafk.actions.SendAlert;
+import me.bubner.sbafk.utils.Events;
+import me.bubner.sbafk.utils.FlagTrigger;
+import me.bubner.sbafk.utils.ModConfig;
+import me.bubner.sbafk.utils.Utils;
 import net.minecraft.client.Minecraft;
 
 /**

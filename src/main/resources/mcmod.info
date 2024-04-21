@@ -1,11 +1,11 @@
 [
 {
-  "modid": "holoafk",
-  "name": "holoafk",
-  "description": "forge port 1.8.9 of bubner/holoafk",
+  "modid": "sbafk",
+  "name": "sbafk",
+  "description": "forge port 1.8.9 of bubner/sbafk",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "https://github.com/bubner/sbafk-forge",
   "updateUrl": "",
   "authorList": ["bubner", "dxxxxy"],
   "credits": "Forge template from dxxxxy",

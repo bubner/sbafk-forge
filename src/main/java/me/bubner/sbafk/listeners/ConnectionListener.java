@@ -1,11 +1,7 @@
-package holo.holoafk.listeners;
+package me.bubner.sbafk.listeners;
 
-import holo.holoafk.actions.SendAlert;
-import holo.holoafk.actions.CommandAction;
-import holo.holoafk.actions.threads.ReconnectAction;
-import holo.holoafk.utils.Events;
-import holo.holoafk.utils.FlagTrigger;
-import holo.holoafk.utils.ModConfig;
+import me.bubner.sbafk.actions.threads.ReconnectAction;
+import me.bubner.sbafk.utils.ModConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ServerData;
 import net.minecraftforge.common.config.Configuration;

@@ -1,12 +1,12 @@
-package holo.holoafk.actions;
+package me.bubner.sbafk.actions;
 
-import holo.holoafk.actions.threads.HubAction;
-import holo.holoafk.actions.threads.KickAction;
-import holo.holoafk.actions.threads.LimboAction;
-import holo.holoafk.utils.Events;
-import holo.holoafk.utils.FlagTrigger;
-import holo.holoafk.utils.ModConfig;
-import holo.holoafk.utils.Utils;
+import me.bubner.sbafk.actions.threads.HubAction;
+import me.bubner.sbafk.actions.threads.KickAction;
+import me.bubner.sbafk.actions.threads.LimboAction;
+import me.bubner.sbafk.utils.Events;
+import me.bubner.sbafk.utils.FlagTrigger;
+import me.bubner.sbafk.utils.ModConfig;
+import me.bubner.sbafk.utils.Utils;
 
 public class CommandAction {
 

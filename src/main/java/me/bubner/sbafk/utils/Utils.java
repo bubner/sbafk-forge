@@ -1,4 +1,4 @@
-package holo.holoafk.utils;
+package me.bubner.sbafk.utils;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.scoreboard.Score;
@@ -19,7 +19,7 @@ public class Utils {
      * Read the config file.
      */
     public static Configuration getConfig() {
-        File configFile = new File(Loader.instance().getConfigDir(), "HoloAFK.cfg");
+        File configFile = new File(Loader.instance().getConfigDir(), "SbAFK.cfg");
         Configuration config = new Configuration(configFile);
         config.load();
         return config;
@@ -29,7 +29,7 @@ public class Utils {
      * Send a formatted message to the player.
      */
     public static void sendMsg(String message) {
-        Minecraft.getMinecraft().thePlayer.addChatMessage(new net.minecraft.util.ChatComponentText("§4[§choloafk§4]§7 " + message));
+        Minecraft.getMinecraft().thePlayer.addChatMessage(new net.minecraft.util.ChatComponentText("§4[§csbafk§4]§7 " + message));
     }
 
     /**

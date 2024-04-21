@@ -1,4 +1,4 @@
-package holo.holoafk.utils;
+package me.bubner.sbafk.utils;
 
 import net.minecraftforge.common.config.Configuration;
 

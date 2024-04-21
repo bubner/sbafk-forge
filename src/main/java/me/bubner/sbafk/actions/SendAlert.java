@@ -1,11 +1,11 @@
-package holo.holoafk.actions;
+package me.bubner.sbafk.actions;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import holo.holoafk.utils.Events;
-import holo.holoafk.utils.FlagTrigger;
-import holo.holoafk.utils.ModConfig;
-import holo.holoafk.utils.Utils;
+import me.bubner.sbafk.utils.Events;
+import me.bubner.sbafk.utils.FlagTrigger;
+import me.bubner.sbafk.utils.ModConfig;
+import me.bubner.sbafk.utils.Utils;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -95,7 +95,7 @@ public class SendAlert extends Thread implements Runnable {
      */
     private static JsonObject getJsonObject(String notifier, Events.AlertPriority priority, String pingmsg, String fullmsg) {
         JsonObject body = new JsonObject();
-        body.addProperty("username", !Objects.equals(notifier, "") ? "holoafk notifier for " + notifier : "holoafk notifier");
+        body.addProperty("username", !Objects.equals(notifier, "") ? "sbafk notifier for " + notifier : "sbafk notifier");
         body.addProperty("avatar_url", "https://cdn.discordapp.com/attachments/792907086555643904/1061517437708816444/holov2simple.png");
         body.addProperty("content", priority == Events.AlertPriority.HIGH ? pingmsg : "");
 
@@ -115,7 +115,7 @@ public class SendAlert extends Thread implements Runnable {
         embed.addProperty("color", priority == Events.AlertPriority.HIGH ? 0xed1c24 : 0x00b020);
 
         JsonObject footer = new JsonObject();
-        footer.addProperty("text", "https://github.com/bubner/holoafk-forge");
+        footer.addProperty("text", "https://github.com/bubner/sbafk-forge");
 
         JsonArray fields = new JsonArray();
 

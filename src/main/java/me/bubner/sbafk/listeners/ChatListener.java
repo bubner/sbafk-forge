@@ -1,17 +1,14 @@
-package holo.holoafk.listeners;
+package me.bubner.sbafk.listeners;
 
-import holo.holoafk.actions.SendAlert;
-import holo.holoafk.actions.CommandAction;
-import holo.holoafk.utils.Events;
-import holo.holoafk.utils.FlagTrigger;
-import holo.holoafk.utils.ModConfig;
-import holo.holoafk.utils.Utils;
+import me.bubner.sbafk.actions.CommandAction;
+import me.bubner.sbafk.utils.Events;
+import me.bubner.sbafk.utils.FlagTrigger;
+import me.bubner.sbafk.utils.ModConfig;
+import me.bubner.sbafk.utils.Utils;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-
-import java.util.Objects;
 
 /**
  * Chat detection for kick events.
@@ -34,7 +31,7 @@ public class ChatListener {
                 FlagTrigger trigger = new FlagTrigger(message, key);
                 CommandAction.runRecovery(config, trigger, Events.FLAGGED_MSGS.get(key), false);
                 if (config.getWebhook().isEmpty()) {
-                    Utils.sendMsg("Cannot notify! Webhook is not set! Set it with /holoafk wh <webhook link>");
+                    Utils.sendMsg("Cannot notify! Webhook is not set! Set it with /sbafk wh <webhook link>");
                     return;
                 }
             }
